@@ -25,11 +25,16 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+    <<<<<<< HEAD
+        <Stack.Screen
           name="AuthMiddleware"
           component={AuthMiddleware}
           options={{headerShown: false}}
         />
         <Stack.Screen
+=======
+        {/* <Stack.Screen
+>>>>>>> a6aa2b82cb8b39f7c48d870bdafe172176124e1a
           name="Start"
           component={Start}
           options={{ headerShown: false }}
@@ -50,12 +55,8 @@ export default function App() {
           name="PersonalInfo"
           component={PersonalInfo}
           options={{ headerShown: false }}
-        />
-
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{ headerShown: false }}
+        /> */}
+ options={{ headerShown: false }}
         />
 
         <Stack.Screen

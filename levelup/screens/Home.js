@@ -10,25 +10,25 @@ import {
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
+import Navbar from './Navbar';
 
 export default function Home() {
     const navigation = useNavigation();
 
     return (
         <SafeAreaView style={styles.sectionContainer} >
-            <Image source={require('../assets/cal.png')} style ={styles.sectionimage}/>
+<Navbar/>
             <View style={styles.sectionbutton}>
                 <TouchableOpacity onPress={() => navigation.navigate('Calories')} style={styles.cal}>
                     <Text style={styles.calText}>Calories{'\n'}Burned</Text>
                 </TouchableOpacity>
             </View>
             
-                <TouchableOpacity onPress={() => navigation.navigate('Activity')}>
-                    <ImageBackground source={require('../assets/add.png')} style={styles.add}>
-                        <Image source={require('../assets/Plus.png')} style={styles.add2} />
-                    </ImageBackground>
-                </TouchableOpacity>
-            
+            <TouchableOpacity onPress={() => navigation.navigate('Activity')}>
+                <ImageBackground source={require('../assets/add.png')} style={styles.add}>
+                    <Image source={require('../assets/Plus.png')} style={styles.add2} />
+                </ImageBackground>
+            </TouchableOpacity>
 
         </SafeAreaView>
     );
@@ -131,12 +131,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     img: {
-        marginHorizontal: 50
-    },
-sectionimage: {
-    height: 400,
-    width: 400,
-   },
+        marginHorizontal: 50
+    }
 
 
 });
