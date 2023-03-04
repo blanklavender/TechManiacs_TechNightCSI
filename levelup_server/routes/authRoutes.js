@@ -8,15 +8,23 @@ require('dotenv').config();
 
 router.post('/signup',(req,res)=>{
     res.send('This is home page');
-    console.log(req.body);
+    console.log('sent by client -', req.body);
 
-    const {name, password} = req.body;
+    const {name, username, password} = req.body;
 
-    User.findOne({name: name})
+    if(!name||!username||!password){
+        return res.status(422).send({error: 'Please fill all the fields'});
+    }
+
+    User.findOne({username: username})
     .then(
         async(savedUser)=> {
+            if(savedUser){
+                return res.status(422).send({error: "User already exists"});
+            }
             const user = new User({
                 name,
+                username,
                 password
             })
             try{
