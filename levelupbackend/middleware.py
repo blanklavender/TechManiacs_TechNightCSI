@@ -1,20 +1,21 @@
-from flask import session
 from functools import wraps
-from db import users
-
+from flask import request, jsonify, session
 
 def needs_auth():
-    def _needs_auth(f):
+    def decorator(f):
         @wraps(f)
-        def __needs_auth(*args, **kwargs):
-            if "email" not in session:
-                return "", 401
-            user = users.find_one({"email": session["email"]})
-            if user:
-                return "", 401
-            result = f(user, *args, **kwargs)
-            return result
+        def wrapper(*args, **kwargs):
+            # Check if user is authenticated
+            user = get_authenticated_user(request)
+            if not user:
+                return jsonify({'message': 'Authentication required'}), 401
+            
+            # Call the protected route function
+            return f(user, *args, **kwargs)
+        return wrapper
+    return decorator
 
-        return __needs_auth
-
-    return _needs_auth
+def get_authenticated_user(request):
+    # Your implementation to get the authenticated user
+    # For example, using session:
+    return session.get('user')

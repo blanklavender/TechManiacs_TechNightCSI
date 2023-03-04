@@ -34,7 +34,6 @@ def signup():
 
 
 @auth.route('/profile', methods=['GET'])
-@needs_auth()
 def profile(user):
     del user["_id"]
     del user["password"]
