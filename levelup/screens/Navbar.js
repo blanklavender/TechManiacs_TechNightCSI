@@ -5,12 +5,10 @@ const Navbar = () => {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <View style={styles.subBox}>
+        
             <Text style={styles.sub_heading}>Welcome back,</Text>
-        </View>
-        <View style={styles.headBox}>
             <Text style={styles.heading}>Fighter!</Text>
-        </View>
+        
       </View>
     </View>
   )
@@ -26,9 +24,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 22,
         borderBottomRightRadius: 22,
     },
-    box: {
-
-    },
+    
     sub_heading: {
       fontSize: 18,
       color: '#ADA4A5',

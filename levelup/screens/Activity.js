@@ -15,6 +15,7 @@ import {
 
 import { useNavigation } from '@react-navigation/native';
 import EntryModal from './EntryModal';
+import Navbar from './Navbar';
 
 
 export default function Activity() {
@@ -23,71 +24,14 @@ export default function Activity() {
 
     return (
         <SafeAreaView style={styles.sectionContainer} >
-            <View>
-                <Text style={styles.sectiontitle}>Activities</Text>
-            </View>
+            <Navbar/>
 
-            <View style={styles.modalView}>
-            <View style={styles.titleBox}>
-                <Text style={styles.title}>
-                    Enter Workout details
-                </Text>
-            </View>
+            <Image source={require('../assets/activity.png')} style={styles.img} />
 
-            <View style={styles.timingBox}>
-                <Text style={styles.label}>Exercise</Text>
-                <TextInput
-                style={styles.input}
-                placeholder="Ex: Walking..."
-                />
-            </View>
-            
-            <View style={styles.timingBox}>
-                <Text style={styles.label}>Duration</Text>
-                <TextInput
-                style={styles.input}
-                placeholder="In HH:MM:SS"
-                />
-            </View>
-            
-            <View style={styles.difficultyBox}>
-                <Text style={styles.label}>Difficulty</Text>
-
-                <Button 
-                title="Easy"
-                color=""
-                style={styles.labelButton}
-                onPress= {()=> Alert.alert('Easy Peasy')}
-                ></Button>
-                <Button 
-                title="Medium"
-                color=""
-                style={styles.labelButton}
-                onPress= {()=> Alert.alert('Mediocre')}
-                ></Button>
-                <Button 
-                title="Difficult"
-                color=""
-                style={styles.labelButton}
-                onPress= {()=> Alert.alert('Difficult')}
-                ></Button>
-            </View>
-            
-
-            <Button 
-            title="Add Workout!"
-            color="#0F2F5B"
-            style={styles.modalbutton}
-            onPress={()=>setModalVisible(!modalVisible)}>
-            </Button>
-            </View>
-
-            {/* <Image source={require('../assets/home.png')} style={styles.img} />
-
-            <View style={styles.fullContainer}>
+            {/* <View style={styles.fullContainer}>
                 <EntryModal/>
             </View>
-            
+             */}
 
             <Text style={styles.label}>Let's Start </Text>
             <View style={styles.sectionbutton}>
@@ -114,7 +58,7 @@ export default function Activity() {
                     <Image style={styles.icon} source={require('../assets/workout.png')} />
                     <Text style={styles.buttonText}>Workout</Text>
                 </TouchableOpacity>
-            </View> */}
+            </View>
 
         </SafeAreaView>
     );
@@ -204,80 +148,81 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         letterSpacing: 1.25
     },
-    // sectioncode: {
-    //     fontSize: 21,
-    //     color: '#0F2F5B',
-    //     textAlign: 'center',
-    //     fontWeight: '700',
-    //     paddingBottom: 20,
-    //     paddingTop: 30,
-    //     letterSpacing: 1.25
-    // },
-    // sectionview: {
-    //     paddingBottom: 20,
-    // },
-    // form: {
-    //     paddingHorizontal: 20,
-    // },
-    // input: {
-    //     backgroundColor: `#c0d1da`,
-    //     borderRadius: 6,
-    //     width: 360,
-    //     marginBottom: 15,
-    //     borderColor: "#BEDCE6",
-    //     borderWidth: 2,
-    //     fontSize: 17,
-    //     paddingHorizontal: 20,
-    // },
-    // label: {
-    //     color: '#0F2F5B',
-    //     fontWeight: '600',
-    //     fontSize: 20,
-    //     paddingTop: 20,
-    //     paddingHorizontal: 20,
-    // },
-    // sectionbutton: {
-    //     alignItems: "center",
+    sectioncode: {
+        fontSize: 21,
+        color: '#0F2F5B',
+        textAlign: 'center',
+        fontWeight: '700',
+        paddingBottom: 20,
+        paddingTop: 30,
+        letterSpacing: 1.25
+    },
+    sectionview: {
+        paddingBottom: 20,
+    },
+    form: {
+        paddingHorizontal: 20,
+    },
+    input: {
+        backgroundColor: `#c0d1da`,
+        borderRadius: 6,
+        width: 360,
+        marginBottom: 15,
+        borderColor: "#BEDCE6",
+        borderWidth: 2,
+        fontSize: 17,
+        paddingHorizontal: 20,
+    },
+    label: {
+        color: '#0F2F5B',
+        fontWeight: '600',
+        fontSize: 20,
+        paddingTop: 20,
+        paddingHorizontal: 20,
+    },
+    sectionbutton: {
+        alignItems: "center",
 
-    // },
-    // button: {
-    //     backgroundColor: '#c0d1da',
-    //     borderRadius: 6,
-    //     width: 360,
-    //     height: 45,
-    //     marginTop: 25,
-    //     flexDirection: 'row',
-    // },
-    // cal: {
-    //     backgroundColor: '#c0d1da',
-    //     borderRadius: 6,
-    //     width: 130,
-    //     height: 55,
-    //     marginTop: 25,
-    // },
-    // buttonText: {
-    //     // textAlign: 'center',
-    //     fontSize: 15,
-    //     color: '#0F2F5B',
-    //     paddingTop: 10,
-    //     fontWeight: '600',
-    //     marginHorizontal: 10,
-    // },
-    // calText: {
-    //     textAlign: 'center',
-    //     fontSize: 15,
-    //     color: '#0F2F5B',
-    //     paddingTop: 10,
-    //     fontWeight: '600',
-    //     marginHorizontal: 10,
-    // },
-    // icon: {
-    //     marginTop: 10,
-    //     marginHorizontal: 10,
-    // },
-    // img: {
-    //     marginHorizontal: 50
-    // }
+    },
+    button: {
+        backgroundColor: '#c0d1da',
+        borderRadius: 6,
+        width: 360,
+        height: 45,
+        marginTop: 25,
+        flexDirection: 'row',
+    },
+    cal: {
+        backgroundColor: '#c0d1da',
+        borderRadius: 6,
+        width: 130,
+        height: 55,
+        marginTop: 25,
+    },
+    buttonText: {
+        // textAlign: 'center',
+        fontSize: 15,
+        color: '#0F2F5B',
+        paddingTop: 10,
+        fontWeight: '600',
+        marginHorizontal: 10,
+    },
+    calText: {
+        textAlign: 'center',
+        fontSize: 15,
+        color: '#0F2F5B',
+        paddingTop: 10,
+        fontWeight: '600',
+        marginHorizontal: 10,
+    },
+    icon: {
+        marginTop: 10,
+        marginHorizontal: 10,
+    },
+    img: {
+        marginHorizontal: 5,
+        marginTop: 50
+    }
 
 
 });
