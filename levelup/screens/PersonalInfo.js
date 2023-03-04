@@ -9,16 +9,46 @@ import {
   ScrollView
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import {APIs} from '../config/APIs';
+import Utils from '../Utils/utils';
 
 export default function Age() {
   const navigation = useNavigation();
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+
+  function handleClick() {
+    
+    const formData = new FormData();
+    formData.append('age', age);
+    formData.append('gender', gender );
+    formData.append('height', height);
+    formData.append('weight', weight);
+
+    fetch(APIs.setEntries, {
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: formData,
+    }).then(async res => {
+      if (res.status >= 200 && res.status < 300) {
+        const response = await res.text();
+        console.log(response);
+        navigation.navigate('Home');
+      }
+    });
+    
+  }
 
   return (
     <ScrollView style={styles.sectionContainer} >
       <Image source={require('../assets/PI.png')} style={styles.image} ></Image>
         <Text style={styles.sectiontitle}>Let's complete your profile</Text>
-        {/* <Text style={styles.sectioncode}></Text> */}
         <View style={styles.form}>
         <Text style={styles.label}>Age</Text>
           <TextInput
@@ -45,7 +75,7 @@ export default function Age() {
         </View>
 
         <View style={styles.sectionbutton}>
-          <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.button}>
+          <TouchableOpacity onPress={handleClick} style={styles.button}>
             <Text style={styles.buttonText}>Continue</Text>
           </TouchableOpacity>
         </View>

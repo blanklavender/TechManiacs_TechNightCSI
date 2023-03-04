@@ -27,7 +27,7 @@ export default function Login() {
     const formData = new FormData();
     formData.append('password', password);
     formData.append('email', username);
-    
+
     fetch(APIs.login, {
       method: 'POST',
       mode: 'cors',

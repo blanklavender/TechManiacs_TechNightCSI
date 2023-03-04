@@ -13,6 +13,8 @@ import Register from './screens/Register';
 import PersonalInfo from './screens/PersonalInfo';
 import Home from './screens/Home';
 import Activity from './screens/Activity';
+import Signin from './screens/Signin';
+import AuthMiddleware from './screens/AuthMiddleware';
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -22,6 +24,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="AuthMiddleware"
+          component={AuthMiddleware}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Start"
           component={Start}
@@ -54,6 +61,12 @@ export default function App() {
         <Stack.Screen
           name="Activity"
           component={Activity}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Signin"
+          component={Signin}
           options={{ headerShown: false }}
         />
 

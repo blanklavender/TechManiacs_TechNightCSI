@@ -11,11 +11,12 @@ import {
 
 import { useNavigation } from '@react-navigation/native';
 
-export default function Hello() {
+export default function Home() {
     const navigation = useNavigation();
 
     return (
         <SafeAreaView style={styles.sectionContainer} >
+            <Image source={require('../assets/cal.png')} style ={styles.sectionimage}/>
             <View style={styles.sectionbutton}>
                 <TouchableOpacity onPress={() => navigation.navigate('Calories')} style={styles.cal}>
                     <Text style={styles.calText}>Calories{'\n'}Burned</Text>
@@ -130,8 +131,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     img: {
-        marginHorizontal: 50
-    }
+        marginHorizontal: 50
+    },
+sectionimage: {
+    height: 400,
+    width: 400,
+   },
 
 
 });
