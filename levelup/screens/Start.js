@@ -6,7 +6,6 @@ import {
     View,
     TouchableOpacity,
     Image,
-    Alert,
   } from 'react-native';
   import { useNavigation } from '@react-navigation/native';
 import { ImageBackground } from 'react-native';
@@ -15,11 +14,9 @@ import { ImageBackground } from 'react-native';
     const navigation = useNavigation();
     return (
       <SafeAreaView style= {styles.sectionContainer} >
-        {/* <ImageBackground source={require('../assests/login.png')} style ={styles.sectionimage}> */}
+        <Image source={require('../assets/start.png')} style ={styles.sectionimage}/>
          <View style={styles.sectionview}>
-          {/* <Text style= {styles.sectionTitle}>EVE</Text>
-          <Text style= {styles.sectioncode}>Your body, your data, With Eve {'\n'} you're in control
-          </Text> */}
+          
          </View>
             <View style ={styles.sectionbutton}>
             <TouchableOpacity  onPress={() => navigation.navigate('Login')} style={styles.button}>
@@ -30,14 +27,14 @@ import { ImageBackground } from 'react-native';
               <Text style={styles.buttonText}>Register</Text>
             </TouchableOpacity>
             </View>
-            {/* </ImageBackground> */}
+            
                 </SafeAreaView>
    );
  };
  
  const styles = StyleSheet.create({
    sectionContainer: {
-     backgroundColor: '#BEDCE6',
+     backgroundColor: '#fff',
      flex: 1,
    },
    sectionTitle: {
@@ -59,7 +56,7 @@ import { ImageBackground } from 'react-native';
  
    sectionbutton: {
     alignItems: "center",
-    marginTop: 560,
+    marginTop: 60,
   },
  
    button: { 
@@ -80,8 +77,8 @@ import { ImageBackground } from 'react-native';
    },
  
    sectionimage: {
-    flex:1,
-     
+    height: 440,
+    width: 400,
    },
      
  });

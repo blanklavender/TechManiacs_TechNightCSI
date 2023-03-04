@@ -11,44 +11,14 @@ import {
   ScrollView
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-// import axios from 'axios';
-// import { APIs } from '../config/APIs';
+
 
 export default function Age() {
   const navigation = useNavigation();
-//   function onSubmit() {
-//     const formData = new FormData();
-//     formData.append('date', date);
-
-//     console.log("Test main")
-//     // axios
-//     //   .post('http://172.22.58.1:5000/signup', formData)
-//     //   .then(resp => {
-//     //     console.log(resp.data);
-//     //   })
-//     //   .catch(error => console.err(error));
-//     fetch(APIs.setEntries, {
-//       method: "POST", // *GET, POST, PUT, DELETE, etc.
-//       mode: "cors", // no-cors, *cors, same-origin
-//       credentials: "include", // include, *same-origin, omit
-//       headers: {
-//         "Content-Type": "multipart/form-data",
-//         // 'Content-Type': 'application/x-www-form-urlencoded',
-//       },
-//       redirect: "follow", // manual, *follow, error
-//       body: formData, // body data type must match "Content-Type" header
-//     }).then((res) => {
-//       return res.text()
-//     }).then((response) => {
-//       console.log(response)
-//     });
-//     navigation.navigate('Cycle')
-//   }
 
   return (
     <ScrollView style={styles.sectionContainer} >
       <Image source={require('../assets/PI.png')} style={styles.image} ></Image>
-      {/* <ImageBackground source={require('../assests/background.png')} style={styles.sectionimage}> */}
         <Text style={styles.sectiontitle}>Let's complete your profile</Text>
         {/* <Text style={styles.sectioncode}></Text> */}
         <View style={styles.form}>
@@ -81,10 +51,7 @@ export default function Age() {
             <Text style={styles.buttonText}>Continue</Text>
           </TouchableOpacity>
         </View>
-
         <TextInput></TextInput>
-
-      {/* </ImageBackground> */}
     </ScrollView>
 
   );
@@ -95,7 +62,7 @@ export default function Age() {
 const styles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
-    backgroundColor: '#BEDCE6'
+    backgroundColor: '#fff',
 
   },
   sectionimage: {
@@ -125,7 +92,7 @@ const styles = StyleSheet.create({
   },
 
   form: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
 
   input: {

@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-// import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,10 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-// import Home from './Home';
-// import {ImageBackground} from 'react-native';
-// import {APIs} from '../config/APIs';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Login() {
   const navigation = useNavigation();
@@ -26,68 +22,43 @@ export default function Login() {
     setPassword(text);
   }
 
-//   function onSubmit() {
-//     const formData = new FormData();
-//     formData.append('password', password);
-//     formData.append('email', username);
-    
-//     fetch(APIs.login, {
-//       method: 'POST',
-//       mode: 'cors',
-//       credentials: 'include',
-//       headers: {
-//         'Content-Type': 'multipart/form-data',
-//       },
-//       body: formData,
-//     }).then(async res => {
-//       if (res.status >= 200 && res.status < 300) {
-//         const response = await res.text();
-//         console.log(response);
-//         navigation.navigate('Info');
-//       }
-//     });
-//   }
-
   return (
     <SafeAreaView style={styles.sectionContainer}>
-      {/* <ImageBackground
-        source={require('../assests/signin.png')} 
-  style={styles.sectionimage}> */}
-        <View style={styles.sectionview}>
-          <Text style={styles.sectionTitle}>Welcome Back !</Text>
-          {/* <Text style= {styles.sectioncode}>Sign In</Text> */}
-        </View>
-        <View style={styles.form}>
-          <Text style={styles.label}>Username</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Ex: abc@gmail.com"
-            onChangeText={handleUsernameChange}
-          />
-          <Text style={styles.label}>Password</Text>
-          <TextInput
-            secureTextEntry={true}
-            style={styles.input}
-            placeholder="Max 8 characters"
-            onChangeText={handlePasswordChange}
-          />
-        </View>
-        <View style={styles.sectionbutton}>
-          <TouchableOpacity onPress={() => navigation.navigate('/')} style={styles.button}>
-            <Text style={styles.buttonText}>Sign In</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.sectionend}>
-          <Text style={styles.endline}>Don't have an account?</Text>
-          <Text
-            style={styles.link}
-            onPress={() => {
-              navigation.navigate('Register');
-            }}>
-            Register
-          </Text>
-        </View>
-      {/* </ImageBackground> */}
+
+      <View style={styles.sectionview}>
+        <Text style={styles.sectionTitle}>Welcome Back !</Text>
+
+      </View>
+      <View style={styles.form}>
+        <Text style={styles.label}>Username</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Ex: abc@gmail.com"
+          onChangeText={handleUsernameChange}
+        />
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          secureTextEntry={true}
+          style={styles.input}
+          placeholder="Max 8 characters"
+          onChangeText={handlePasswordChange}
+        />
+      </View>
+      <View style={styles.sectionbutton}>
+        <TouchableOpacity onPress={() => navigation.navigate('/')} style={styles.button}>
+          <Text style={styles.buttonText}>Sign In</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.sectionend}>
+        <Text style={styles.endline}>Don't have an account?</Text>
+        <Text
+          style={styles.link}
+          onPress={() => {
+            navigation.navigate('Register');
+          }}>
+          Register
+        </Text>
+      </View>
     </SafeAreaView>
   );
 }
@@ -95,7 +66,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
-    backgroundColor: '#BEDCE6',
+    backgroundColor: '#fff',
   },
   sectionimage: {
     flex: 1,

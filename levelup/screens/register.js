@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,33 +8,13 @@ import {
   ImageBackground,
   TextInput,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-// import axios from 'axios';
-// import {APIs} from '../config/APIs';
-// import Utils from '../utils/Utils';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Register() {
   const navigation = useNavigation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-
-//   function onSubmit() {
-//     const formData = new FormData();
-//     formData.append('name', name);
-//     formData.append('password', password);
-//     formData.append('email', username);
-//     Utils.post(APIs.signup, formData).then(response => {
-//       if (response.status >= 400 && response.status < 500) {
-//         navigation.navigate('Start');
-//         return;
-//       }
-//       if (response.status >= 200 && response.status < 300) {
-//         console.log(response.data);
-//         navigation.navigate('Info');
-//       }
-//     });
-//   }
 
   function handleUsernameChange(text) {
     setUsername(text);
@@ -50,47 +30,43 @@ export default function Register() {
 
   return (
     <SafeAreaView style={styles.sectionContainer}>
-      {/* <ImageBackground
-        source={require('../assests/signin.png')}
-        style={styles.sectionimage}> */}
-        <View style={styles.sectionview}>
-          <Text style={styles.sectionTitle}>Register</Text>
+      <View style={styles.sectionview}>
+        <Text style={styles.sectionTitle}>Register</Text>
+      </View>
+      <View style={styles.form}>
+        <Text style={styles.label}>Name</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Ex: Machlin"
+          onChangeText={handleNameChange}
+        />
+        <Text style={styles.label}>Username</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Ex: abc@gmail.com"
+          onChangeText={handleUsernameChange}
+        />
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          secureTextEntry={true}
+          style={styles.input}
+          placeholder="Max 8 characters"
+          onChangeText={handlePasswordChange}
+        />
+      </View>
+      <View style={styles.sectionbutton}>
+        <TouchableOpacity onPress={() => navigation.navigate('PersonalInfo')} style={styles.button}>
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
+        <View style={styles.sectionend}>
+          <Text style={styles.endline}>Already have an account?</Text>
+          <Text
+            style={styles.link}
+            onPress={() => navigation.navigate('Login')}>
+            Sign In
+          </Text>
         </View>
-        <View style={styles.form}>
-          <Text style={styles.label}>Name</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Ex: Machlin"
-            onChangeText={handleNameChange}
-          />
-          <Text style={styles.label}>Username</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Ex: abc@gmail.com"
-            onChangeText={handleUsernameChange}
-          />
-          <Text style={styles.label}>Password</Text>
-          <TextInput
-            secureTextEntry={true}
-            style={styles.input}
-            placeholder="Max 8 characters"
-            onChangeText={handlePasswordChange}
-          />
-        </View>
-        <View style={styles.sectionbutton}>
-          <TouchableOpacity onPress={() => navigation.navigate('PersonalInfo')} style={styles.button}>
-            <Text style={styles.buttonText}>Register</Text>
-          </TouchableOpacity>
-          <View style={styles.sectionend}>
-            <Text style={styles.endline}>Already have an account?</Text>
-            <Text
-              style={styles.link}
-              onPress={() => navigation.navigate('Login')}>
-              Sign In
-            </Text>
-          </View>
-        </View>
-      {/* </ImageBackground> */}
+      </View>
     </SafeAreaView>
   );
 }
@@ -98,7 +74,7 @@ export default function Register() {
 const styles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
-    backgroundColor: '#BEDCE6',
+    backgroundColor: '#fff',
   },
   sectionimage: {
     flex: 1,

@@ -20,11 +20,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
-          name="AuthMiddleware"
-          component={AuthMiddleware}
-          options={{headerShown: false}}
-        /> */}
         <Stack.Screen
           name="Start"
           component={Start}
