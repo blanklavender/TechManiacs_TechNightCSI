@@ -9,12 +9,33 @@ import {
   TextInput,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import {APIs} from '../config/APIs';
+import Utils from '../Utils/utils';
 
 export default function Register() {
   const navigation = useNavigation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+
+  function onSubmit() {
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('password', password);
+    formData.append('email', username);
+    
+    Utils.post(APIs.signup, formData).then(response => {
+      console.log('Hey');
+      if (response.status >= 400 && response.status < 500) {
+        navigation.navigate('Start');
+        return;
+      }
+      if (response.status >= 200 && response.status < 300) {
+        console.log(response.data);
+        navigation.navigate('PersonalInfo');
+      }
+    });
+  }
 
   function handleUsernameChange(text) {
     setUsername(text);
@@ -55,7 +76,7 @@ export default function Register() {
         />
       </View>
       <View style={styles.sectionbutton}>
-        <TouchableOpacity onPress={() => navigation.navigate('PersonalInfo')} style={styles.button}>
+        <TouchableOpacity onPress={onSubmit} style={styles.button}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
         <View style={styles.sectionend}>

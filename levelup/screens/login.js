@@ -8,6 +8,7 @@ import {
   TextInput,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import {APIs} from '../config/APIs';
 
 export default function Login() {
   const navigation = useNavigation();
@@ -22,6 +23,27 @@ export default function Login() {
     setPassword(text);
   }
 
+  function onSubmit() {
+    const formData = new FormData();
+    formData.append('password', password);
+    formData.append('email', username);
+    
+    fetch(APIs.login, {
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: formData,
+    }).then(async res => {
+      if (res.status >= 200 && res.status < 300) {
+        const response = await res.text();
+        console.log(response);
+        navigation.navigate('Home');
+      }
+    });
+  }
   return (
     <SafeAreaView style={styles.sectionContainer}>
 
@@ -45,7 +67,7 @@ export default function Login() {
         />
       </View>
       <View style={styles.sectionbutton}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.button}>
+        <TouchableOpacity onPress={onSubmit} style={styles.button}>
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
       </View>
