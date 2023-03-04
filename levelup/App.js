@@ -22,7 +22,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Start"
           component={Start}
           options={{ headerShown: false }}
@@ -43,7 +43,7 @@ export default function App() {
           name="PersonalInfo"
           component={PersonalInfo}
           options={{ headerShown: false }}
-        />
+        /> */}
 
         <Stack.Screen
           name="Home"
