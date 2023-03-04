@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-  ImageBackground,
+  Image,
   Alert,
   TextInput,
+  ScrollView
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 // import axios from 'axios';
@@ -43,23 +44,40 @@ export default function Age() {
 //     });
 //     navigation.navigate('Cycle')
 //   }
-  const [date, setDate] = useState(new Date());
+
   return (
-    <SafeAreaView style={styles.sectionContainer} >
+    <ScrollView style={styles.sectionContainer} >
+      <Image source={require('../assets/PI.png')} style={styles.image} ></Image>
       {/* <ImageBackground source={require('../assests/background.png')} style={styles.sectionimage}> */}
-        <Text style={styles.sectiontitle}>Enter your {'\n'} Age</Text>
+        <Text style={styles.sectiontitle}>Let's complete your profile</Text>
         {/* <Text style={styles.sectioncode}></Text> */}
         <View style={styles.form}>
-
+        <Text style={styles.label}>Age</Text>
           <TextInput
             style={styles.input}
             placeholder="Years"
+          />
+        <Text style={styles.label}>Enter Gender</Text>
+        <TextInput
+            style={styles.input}
+            placeholder="Male/Female"
+          />
+
+        <Text style={styles.label}>Height</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="CM"
+          />
+        <Text style={styles.label}>Weight</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="KG"
           />
 
         </View>
 
         <View style={styles.sectionbutton}>
-          <TouchableOpacity onPress={() => navigation.navigate('Height')} style={styles.button}>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.button}>
             <Text style={styles.buttonText}>Continue</Text>
           </TouchableOpacity>
         </View>
@@ -67,7 +85,7 @@ export default function Age() {
         <TextInput></TextInput>
 
       {/* </ImageBackground> */}
-    </SafeAreaView>
+    </ScrollView>
 
   );
 
@@ -89,7 +107,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '700',
     paddingBottom: 20,
-    paddingTop: 220,
+    paddingTop: 10,
     letterSpacing: 1.25
   },
   sectioncode: {
@@ -151,5 +169,6 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontWeight: '600'
   },
+
 
 });

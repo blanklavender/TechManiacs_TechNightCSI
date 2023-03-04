@@ -78,7 +78,7 @@ export default function Register() {
           />
         </View>
         <View style={styles.sectionbutton}>
-          <TouchableOpacity onPress={() => navigation.navigate('Gender')} style={styles.button}>
+          <TouchableOpacity onPress={() => navigation.navigate('PersonalInfo')} style={styles.button}>
             <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
           <View style={styles.sectionend}>

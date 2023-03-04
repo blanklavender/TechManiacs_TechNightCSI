@@ -10,8 +10,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Start from './screens/Start';
 import Login from './screens/Login';
 import Register from './screens/Register';
-import Age from './screens/Age';
-import Gender from './screens/Gender';
+import PersonalInfo from './screens/PersonalInfo';
+
 import { NavigationContainer } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
@@ -43,16 +43,11 @@ export default function App() {
         />
 
         <Stack.Screen
-          name="Age"
-          component={Age}
+          name="PersonalInfo"
+          component={PersonalInfo}
           options={{ headerShown: false }}
         />
 
-        <Stack.Screen
-          name="Gender"
-          component={Gender}
-          options={{ headerShown: false }}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   );
