@@ -7,36 +7,35 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 router.post('/signup',(req,res)=>{
-    res.send('This is home page');
-    console.log('sent by client -', req.body);
+    res.send('This is signup page');
+    console.log(req.body);
 
-    const {name, username, password} = req.body;
-
-    if(!name||!username||!password){
-        return res.status(422).send({error: 'Please fill all the fields'});
+    const {pname, username, password} = req.body;
+    
+    if(!pname || !username || !password){
+        return res.status(422).send({error: "Please fill all fields"});
     }
 
     User.findOne({username: username})
-    .then(
-        async(savedUser)=> {
-            if(savedUser){
-                return res.status(422).send({error: "User already exists"});
+        .then( async(savedUser) => {
+                if(savedUser){
+                    return res.status(422).send({error: "Invalid"});
+                }
+                const user = new User({
+                    pname,
+                    username,
+                    password
+                })
+                try{
+                    await user.save();
+                    res.send({message: 'user added successfully'});
+                }
+                catch(err){
+                    console.log("db err: ", err);
+                    return res.status(422).send({error: err.message });
+                }
             }
-            const user = new User({
-                name,
-                username,
-                password
-            })
-            try{
-                await user.save();
-                res.send({message: 'USER SAVED'});
-            }
-            catch(err){
-                console.log('db err', err);
-                return res.status(422).send({error: err.message});
-            }
-        }
-    )
-})
+        )
+}) 
 
 module.exports = router;

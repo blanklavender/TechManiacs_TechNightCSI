@@ -8,6 +8,7 @@ require('./db');
 require('./model/User');
 
 const authRoutes = require('./routes/authRoutes');
+
 app.use(bodyParser.json());
 app.use(authRoutes);
 
