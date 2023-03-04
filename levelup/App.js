@@ -11,7 +11,8 @@ import Start from './screens/Start';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import PersonalInfo from './screens/PersonalInfo';
-import Home from './screens/Home'
+import Home from './screens/Home';
+import Activity from './screens/Activity';
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -47,6 +48,12 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Activity"
+          component={Activity}
           options={{ headerShown: false }}
         />
 

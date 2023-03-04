@@ -6,28 +6,45 @@ import {
     View,
     TouchableOpacity,
     Image,
-    ImageBackground
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
-export default function Hello() {
+export default function Activity() {
     const navigation = useNavigation();
 
     return (
         <SafeAreaView style={styles.sectionContainer} >
+            <View>
+                <Text style={styles.sectiontitle}>Activities</Text>
+            </View>
+            <Image source={require('../assets/home.png')} style={styles.img} />
+            
+            <Text style={styles.label}>Let's Start </Text>
             <View style={styles.sectionbutton}>
-                <TouchableOpacity onPress={() => navigation.navigate('Calories')} style={styles.cal}>
-                    <Text style={styles.calText}>Calories{'\n'}Burned</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Running')} style={styles.button}>
+                    <Image style={styles.icon} source={require('../assets/run.png')} />
+                    <Text style={styles.buttonText}>Running</Text>
                 </TouchableOpacity>
             </View>
-            
-                <TouchableOpacity onPress={() => navigation.navigate('Activity')}>
-                    <ImageBackground source={require('../assets/add.png')} style={styles.add}>
-                        <Image source={require('../assets/Plus.png')} style={styles.add2} />
-                    </ImageBackground>
+            <View style={styles.sectionbutton}>
+                <TouchableOpacity onPress={() => navigation.navigate('Cycling')} style={styles.button}>
+                    <Image style={styles.icon} source={require('../assets/Chart.png')} />
+                    <Text style={styles.buttonText}>Cycling</Text>
                 </TouchableOpacity>
-            
+            </View>
+            <View style={styles.sectionbutton}>
+                <TouchableOpacity onPress={() => navigation.navigate('Treadmill')} style={styles.button}>
+                    <Image style={styles.icon} source={require('../assets/Treadmill.png')} />
+                    <Text style={styles.buttonText}>Treadmill</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.sectionbutton}>
+                <TouchableOpacity onPress={() => navigation.navigate('Workout')} style={styles.button}>
+                    <Image style={styles.icon} source={require('../assets/workout.png')} />
+                    <Text style={styles.buttonText}>Workout</Text>
+                </TouchableOpacity>
+            </View>
 
         </SafeAreaView>
     );
@@ -45,8 +62,8 @@ const styles = StyleSheet.create({
         color: '#0F2F5B',
         textAlign: 'center',
         fontWeight: '700',
-        paddingBottom: 10,
-        paddingTop: 10,
+        paddingBottom: 30,
+        paddingTop: 30,
         letterSpacing: 1.25
     },
     sectioncode: {
@@ -58,7 +75,9 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         letterSpacing: 1.25
     },
-   
+    sectionview: {
+        paddingBottom: 20,
+    },
     form: {
         paddingHorizontal: 20,
     },
@@ -76,7 +95,7 @@ const styles = StyleSheet.create({
         color: '#0F2F5B',
         fontWeight: '600',
         fontSize: 20,
-        paddingTop: 10,
+        paddingTop: 20,
         paddingHorizontal: 20,
     },
     sectionbutton: {
@@ -97,17 +116,6 @@ const styles = StyleSheet.create({
         width: 130,
         height: 55,
         marginTop: 25,
-    },
-    add: {
-        width: 90,
-        height: 75,
-        marginTop: 25,
-        marginHorizontal: 150
-    },
-    add2: {
-        width: 70,
-        height: 55,
-        marginHorizontal: 10
     },
     buttonText: {
         // textAlign: 'center',
