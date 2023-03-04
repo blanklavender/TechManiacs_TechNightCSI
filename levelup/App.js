@@ -13,8 +13,10 @@ import Register from './screens/Register';
 import PersonalInfo from './screens/PersonalInfo';
 import Home from './screens/Home';
 import Activity from './screens/Activity';
+import Running from './screens/Running';
 
 import { NavigationContainer } from '@react-navigation/native';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +58,11 @@ export default function App() {
           component={Activity}
           options={{ headerShown: false }}
         />
+
+        <Stack.Screen
+        name="Running"
+        component={Running}
+        options={{ headerShown: false }}/>
 
       </Stack.Navigator>
     </NavigationContainer>

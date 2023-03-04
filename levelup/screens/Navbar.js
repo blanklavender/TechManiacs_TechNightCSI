@@ -18,7 +18,7 @@ export default Navbar
 
 const styles = StyleSheet.create({
     container: {
-        flex:0.15,
+        // flex:0.15,
         borderColor: '#ADA4A5',
         borderBottomWidth: 2,
         borderBottomLeftRadius: 22,
@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
       color: '#000',
       paddingLeft: 25,
       paddingTop: 3,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
     }
 })

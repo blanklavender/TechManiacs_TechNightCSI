@@ -18,80 +18,91 @@ import EntryModal from './EntryModal';
 import Navbar from './Navbar';
 
 
-export default function Activity() {
+export default function Running() {
     const navigation = useNavigation();
-    const [modalVisible, setModalVisible] = useState(false);
-
     return (
         <SafeAreaView style={styles.sectionContainer} >
-            <View style={{height: 80}}>
-            <Navbar />
+            <View>
+                <Text style={styles.sectiontitle}>Activities</Text>
             </View>
-            <Image source={require('../assets/activity.png')} style={styles.img} />
 
-            {/* <View style={styles.fullContainer}>
-                <EntryModal/>
+            <View style={styles.modalView}>
+            <View style={styles.titleBox}>
+                <Text style={styles.title}>
+                    Enter Workout details
+                </Text>
             </View>
-             */}
 
-            <Text style={styles.label}>Let's Start </Text>
-            <View style={{ flexDirection: 'row' }}>
-                <View style={styles.sectionbutton}>
-                    <Image source={require('../assets/Running.png')}
-                    style={{marginTop: 10}}/>
-                    <Pressable onPress={() => navigation.navigate('Running')}
-                        style={styles.button}>
-                        <Image style={styles.icon} source={require('../assets/run.png')} />
-                        <Text style={styles.buttonText}>Running</Text>
-                    </Pressable>
-                </View>
-                <View style={styles.sectionbutton}>
-                <Image source={require('../assets/Running.png')}
-                    style={{marginTop: 10}}/>
-                    <TouchableOpacity onPress={() => navigation.navigate('Cycling')} style={styles.button}>
-                        <Image style={styles.icon} source={require('../assets/Chart.png')} />
-                        <Text style={styles.buttonText}>Cycling</Text>
-                    </TouchableOpacity>
-                </View>
+            <View style={styles.timingBox}>
+                <Text style={styles.label}>Exercise</Text>
+                <TextInput
+                style={styles.input}
+                placeholder="Ex: Walking..."
+                />
             </View>
-            <View style={{ flexDirection: 'row' }}>
-                <View style={styles.sectionbutton}>
-                <Image source={require('../assets/walking.png')} style={{marginTop: 10}}/>
-                    <TouchableOpacity onPress={() => navigation.navigate('Walking')} style={styles.button}>
-                        <Image style={{marginTop: 11, marginHorizontal: 3}} source={require('../assets/Treadmill.png')} />
-                        <Text style={styles.buttonText}>Walking</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.sectionbutton}>
-                <Image source={require('../assets/work.png')} style={{marginTop: 10}}/>
-                    <TouchableOpacity onPress={() => navigation.navigate('Workout')} style={styles.button}>
-                        <Image style={{marginTop: 17, marginHorizontal: 4}} source={require('../assets/workout.png')} />
-                        <Text style={styles.buttonText}>Workout</Text>
-                    </TouchableOpacity>
-                </View>
+            
+            <View style={styles.timingBox}>
+                <Text style={styles.label}>Duration</Text>
+                <TextInput
+                style={styles.input}
+                placeholder="In HH:MM:SS"
+                />
+            </View>
+            
+            <View style={styles.difficultyBox}>
+                <Text style={styles.label}>Difficulty</Text>
+
+                <Button 
+                title="Easy"
+                color=""
+                style={styles.labelButton}
+                onPress= {()=> Alert.alert('Easy Peasy')}
+                ></Button>
+                <Button 
+                title="Medium"
+                color=""
+                style={styles.labelButton}
+                onPress= {()=> Alert.alert('Mediocre')}
+                ></Button>
+                <Button 
+                title="Difficult"
+                color=""
+                style={styles.labelButton}
+                onPress= {()=> Alert.alert('Difficult')}
+                ></Button>
+            </View>
+            
+
+            <Button 
+            title="Add Workout!"
+            color="#0F2F5B"
+            style={styles.modalbutton}
+            onPress={()=>setModalVisible(!modalVisible)}>
+            </Button>
             </View>
         </SafeAreaView>
     );
+
 }
 
 const styles = StyleSheet.create({
 
-    fullContainer: {
+    fullContainer:{
         justifyItems: 'center',
-        flex: 1,
+        flex:1,
         alignItems: 'center',
-
+        
     },
 
-    modalView: {
-        flex: 1,
-        backgroundColor: '#90e0ef',
+    modalView:{
+        flex:1,
+        backgroundColor:'#90e0ef',
         borderRadius: 20,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
             height: 2,
-        },
+          },
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
@@ -99,13 +110,13 @@ const styles = StyleSheet.create({
         padding: 25
     },
 
-    titleBox: {
+    titleBox:{
         //flex: 1,
         marginBottom: 40,
     },
     timingBox: {
         //flex: 1,
-        flexDirection: 'row',
+        flexDirection:'row',
         alignItems: 'center',
         marginBottom: 20,
     },
@@ -115,15 +126,19 @@ const styles = StyleSheet.create({
         marginBottom: 70,
     },
     labelButton: {
-        display: 'flex',
+        display:'flex',
         marginRight: 20,
     },
     title: {
         fontWeight: 'bold',
         fontSize: 18,
     },
-
-       
+    label: {
+        display: 'flex',
+        fontWeight: 'bold',
+        fontSize: 18,
+        paddingRight: 17
+    },
     input: {
         display: 'flex',
         backgroundColor: '#fff',
@@ -151,7 +166,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         //paddingBottom: 30,
-        paddingTop: 20,
+        paddingTop: 30,
         letterSpacing: 1.25
     },
     sectioncode: {
@@ -183,24 +198,19 @@ const styles = StyleSheet.create({
         color: '#0F2F5B',
         fontWeight: '600',
         fontSize: 20,
+        paddingTop: 20,
         paddingHorizontal: 20,
     },
     sectionbutton: {
         alignItems: "center",
-        backgroundColor: "#AB8DA8",
-        width: 160,
-        height: 170,
-        marginBottom: 10,
-        margin: 15,
-        borderRadius: 10,
 
     },
     button: {
         backgroundColor: '#c0d1da',
         borderRadius: 6,
-        width: 100,
+        width: 360,
         height: 45,
-        marginTop: 15,
+        marginTop: 25,
         flexDirection: 'row',
     },
     cal: {
@@ -214,9 +224,9 @@ const styles = StyleSheet.create({
         // textAlign: 'center',
         fontSize: 15,
         color: '#0F2F5B',
-        marginTop: 10,
+        paddingTop: 10,
         fontWeight: '600',
-        marginHorizontal: 0,
+        marginHorizontal: 10,
     },
     calText: {
         textAlign: 'center',
@@ -228,11 +238,10 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginTop: 10,
-        marginHorizontal: 7,
+        marginHorizontal: 10,
     },
     img: {
-        marginHorizontal: 5,
-        marginTop: 20
+        marginHorizontal: 50
     }
 
 
