@@ -11,6 +11,7 @@ import Start from './screens/Start';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import PersonalInfo from './screens/PersonalInfo';
+import Home from './screens/Home'
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -40,6 +41,12 @@ export default function App() {
         <Stack.Screen
           name="PersonalInfo"
           component={PersonalInfo}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Home"
+          component={Home}
           options={{ headerShown: false }}
         />
 

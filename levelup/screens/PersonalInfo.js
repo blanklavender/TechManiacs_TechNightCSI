@@ -1,12 +1,10 @@
 import React, { useState,useCallback } from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
   Image,
-  Alert,
   TextInput,
   ScrollView
 } from 'react-native';
