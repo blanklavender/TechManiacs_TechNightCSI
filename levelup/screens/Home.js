@@ -17,61 +17,65 @@ export default function Home() {
 
 
     const [Session, setSession] = useState([
-        {key: 1, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
-        {key: 2, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
-        {key: 3, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
-        {key: 4, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
-        {key: 5, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
-        {key: 6, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
-        {key: 7, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
-        {key: 8, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
-        {key: 9, date: '11oct', desc: 'Lorem ipsum dolor sit amet. Aut repellen dus ipsa ab ipsa animi qui exercitationem magni est animi.', time: '01.10.00' },
+        {key: 1, activity: 'Running', calories: '100 Kcal'},
+        {key: 2, activity: 'Walking', calories: '100 Kcal'},
+        {key: 3, activity: 'Cycling', calories: '100 Kcal'},
+        {key: 4, activity: 'Workout', calories: '100 Kcal'},
+        
     ])
 
     const size = Session.length;
 
     if (size) {
         return (
+
             <View style={styles.body}>
-            <Text style={styles.heading}>Activities</Text>
-                 <TouchableOpacity onPress={() => navigation.navigate('Activity')}>
-                <ImageBackground source={require('../assets/add.png')} style={styles.add}>
-                   <Image source={require('../assets/Plus.png')} style={styles.add2} />
-                 </ImageBackground>
-           </TouchableOpacity>
-                
+<View style={{flexDirection: 'row'}}>
+                <Text style={styles.heading}>Hello Fighter!    </Text>
+                <Image style={styles.img} source={require('../assets/logo.png')}/>
+                </View>
+                <Image source={require('../assets/home.png')}/>
                 <Text style={styles.label}>Activity Status</Text>
                 <ScrollView style={styles.list}>
                     {
-                        Session.map((i)=>{
-                            return(
+                        Session.map((i) => {
+                            return (
                                 <View style={styles.box} key={i.key}>
                                     <View style={styles.date}>
-                                        <Text style={styles.text}>{i.date}</Text>
+                                        <Text style={styles.text}>{i.activity}</Text>
                                     </View>
                                     <View style={styles.desc}>
-                                        <Text style={styles.text}>{i.desc}</Text>
-                                    </View>
-                                    <View style={styles.time}>
-                                        <Text style={styles.text}>{i.time}</Text>
+                                        <Text style={styles.text}>{i.calories}</Text>
                                     </View>
                                 </View>
                             )
                         })
                     }
                 </ScrollView>
+                <TouchableOpacity onPress={() => navigation.navigate('Activity')}>
+                    <ImageBackground source={require('../assets/add.png')} style={styles.add}>
+                        <Image source={require('../assets/Plus.png')} style={styles.add2} />
+                    </ImageBackground>
+                </TouchableOpacity>
             </View>
+
         )
     }
 
-    return(
+    return (
         <View style={styles.body}>
             <Text style={styles.heading}>Activities</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Activity')}>
+                <ImageBackground source={require('../assets/add.png')} style={styles.add}>
+                    <Image source={require('../assets/Plus.png')} style={styles.add2} />
+                </ImageBackground>
+            </TouchableOpacity>
             <Text style={styles.label}>Activity Status</Text>
             <View style={styles.empty}>
-                <Text style={styles.subheading}>No Sessions</Text>
+                <Text style={styles.subheading}>No Record Of any Activity</Text>
             </View>
         </View>
+
     )
 }
 
@@ -83,17 +87,31 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'Nats',
-        fontSize: 25,
+        fontSize: 20,
         color: "#000",
-        margin: 50,
+        marginHorizontal: 30,
         fontWeight: 'bold',
+        marginRight: 80,
+        marginTop: 30
+
     },
+    sectionTitle: {
+        fontSize: 45,
+        fontWeight: '900',
+        color: `#0F2F5B`,
+        fontStyle: 'italic',
+        textAlign: 'center',
+        paddingTop: 20,
+        paddingBottom: 10,
+      },
     subheading: {
-        fontSize: 17
+        fontSize: 17,
+        color: '#0F2F5B',
+        
     },
     text: {
         margin: 5,
-        fontSize: 13,
+        fontSize: 15,
         color: '#0F2F5B',
     },
     list: {
@@ -102,31 +120,29 @@ const styles = StyleSheet.create({
     box: {
         alignItems: 'center',
         justifyContent: 'center',
-        margin:5,
+        marginHorizontal: 40, 
         flexDirection: 'row',
-        height: 90,
+        height: 40,
         flex: 1,
+        backgroundColor: '#c8E8E8',
+        
+        
     },
     date: {
         height: '100%',
-        width: '15%',
+        width: '50%',
         justifyContent: 'center',
         alignItems: 'center',
     },
     desc: {
         height: '100%',
-        width: '68%',
+        width: '50%',
         justifyContent: 'center',
         alignItems: 'baseline',
     },
-    time: {
-        height: '100%',
-        width: '17%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+    
     empty: {
-        backgroundColor: '#E8E8E8',
+        backgroundColor: '#c8E8E8',
         width: '90%',
         height: '65%',
         justifyContent: 'center',
@@ -161,7 +177,7 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         letterSpacing: 1.25
     },
-   
+
     form: {
         paddingHorizontal: 20,
     },
@@ -178,8 +194,9 @@ const styles = StyleSheet.create({
     label: {
         color: '#0F2F5B',
         fontWeight: '600',
-        fontSize: 20,
-        paddingTop: 10,
+        fontSize: 30,
+        paddingTop: 50,
+        marginBottom: 30,
         paddingHorizontal: 20,
     },
     sectionbutton: {
@@ -204,7 +221,8 @@ const styles = StyleSheet.create({
     add: {
         width: 90,
         height: 75,
-        marginHorizontal: 150
+        marginHorizontal: 150,
+        marginTop: 20
     },
     add2: {
         width: 70,
@@ -232,7 +250,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     img: {
-        marginHorizontal: 50
+        height: 70,
+        width: 70,
+        marginTop: 10
     }
 
 

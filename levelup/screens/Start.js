@@ -14,7 +14,9 @@ import { ImageBackground } from 'react-native';
     const navigation = useNavigation();
     return (
       <SafeAreaView style= {styles.sectionContainer} >
-        <Image source={require('../assets/start.png')} style ={styles.sectionimage}/>
+        <ImageBackground source={require('../assets/start.png')} style ={styles.sectionimage}>
+          <Text style={styles.sectionTitle} >LEVEL{'\n'}   UP</Text>
+        </ImageBackground>
          <View style={styles.sectionview}>
           
          </View>
@@ -38,11 +40,12 @@ import { ImageBackground } from 'react-native';
      flex: 1,
    },
    sectionTitle: {
-     fontSize: 80,
+     fontSize: 40,
      fontWeight: '900',
-     color: `#ffffff`,
+     color: `#6359A6`,
      fontStyle: 'italic',
-     textAlign: 'center',
+     margin: 20
+     
    },
    sectioncode: {
      fontSize: 15,

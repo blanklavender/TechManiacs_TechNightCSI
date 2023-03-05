@@ -20,7 +20,7 @@ import EntryModal from './EntryModal';
 import Navbar from './Navbar';
 
 
-export default function Running() {
+export default function Work() {
     const navigation = useNavigation();
     const [options, setOptions] = useState({
         difficult: false,
@@ -33,20 +33,21 @@ export default function Running() {
     return (
         <SafeAreaView style={styles.sectionContainer} >
             <View>
-                <Text style={styles.sectiontitle}>Running</Text>
+                <Text style={styles.sectiontitle}>Work out</Text>
 
             </View>
 
 
 
             <View style={styles.titleBox}>
-                <Image source={require('../assets/Running.png')} />
+                <Image source={require('../assets/work.png')} />
                 <Text style={styles.title}>
                     Enter details
                 </Text>
             </View>
             <View style={styles.form}>
-            
+    
+
             <View >
                 <Text style={styles.label}>Duration</Text>
                 <TextInput

@@ -64,7 +64,7 @@ export default function Activity() {
                 </View>
                 <View style={styles.sectionbutton}>
                 <Image source={require('../assets/work.png')} style={{marginTop: 10}}/>
-                    <TouchableOpacity onPress={() => navigation.navigate('Workout')} style={styles.button}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Work')} style={styles.button}>
                         <Image style={{marginTop: 17, marginHorizontal: 4}} source={require('../assets/workout.png')} />
                         <Text style={styles.buttonText}>Workout</Text>
                     </TouchableOpacity>

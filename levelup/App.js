@@ -14,6 +14,9 @@ import PersonalInfo from './screens/PersonalInfo';
 import Home from './screens/Home';
 import Activity from './screens/Activity';
 import Running from './screens/Running';
+import Walking from './screens/Walking';
+import Cycling from './screens/Cycling';
+import Work from './screens/Work';
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -23,8 +26,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        {/* <Stack.Screen
+       <Stack.Navigator>
+        <Stack.Screen
           name="Start"
           component={Start}
           options={{ headerShown: false }}
@@ -45,7 +48,7 @@ export default function App() {
           name="PersonalInfo"
           component={PersonalInfo}
           options={{ headerShown: false }}
-        /> */}
+        />
 
         <Stack.Screen
           name="Home"
@@ -63,6 +66,24 @@ export default function App() {
         name="Running"
         component={Running}
         options={{ headerShown: false }}/>
+
+<Stack.Screen
+        name="Walking"
+        component={Walking}
+        options={{ headerShown: false }}/>
+
+
+<Stack.Screen
+        name="Work"
+        component={Work}
+        options={{ headerShown: false }}/>
+
+
+<Stack.Screen
+        name="Cycling"
+        component={Cycling}
+        options={{ headerShown: false }}/>
+
 
       </Stack.Navigator>
     </NavigationContainer>
