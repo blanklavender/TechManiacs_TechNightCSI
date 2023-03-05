@@ -8,14 +8,14 @@ main = Blueprint('main', __name__)
 
 
 @main.route('/get-entries/', methods=['GET'])
-
+@needs_auth()
 def index(user):
     if request.method == "GET":
         return json_util.dumps(entries.find({}))
 
 
 @main.route('/entry', methods=['POST'])
-
+@needs_auth()
 def set_entry(user):
     if request.method == 'POST':
         age = request.form.get['age']
@@ -25,4 +25,15 @@ def set_entry(user):
         new_entry = {'username': user["email"], 'age': age, 'gender': gender, 'height': height, 'weight' : weight}
         entries.insert_one(new_entry)
         return {"message": "Done"}
+    
+# @main.route('/set-entry', methods=['POST'])
+# @needs_auth()
+# def set_entry(user):
+#     if request.method == 'POST':
+#         Duration = request.form.get['Duration']
+#         intensity = request.form.get['intensity']
+       
+#         new_entry = {'username': user["email"], 'Duration': Duration, 'intensity': intensity, }
+#         entries.insert_one(new_entry)
+#         return {"message": "Done"}
     

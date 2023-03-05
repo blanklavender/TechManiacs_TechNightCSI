@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     },
     img: {
         marginHorizontal: 5,
-        marginTop: 20
+        // marginTop: 20
     }
 
 

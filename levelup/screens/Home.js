@@ -32,7 +32,11 @@ export default function Home() {
             <View style={styles.body}>
 <View style={{flexDirection: 'row'}}>
                 <Text style={styles.heading}>Hello Fighter!    </Text>
-                <Image style={styles.img} source={require('../assets/logo.png')}/>
+                
+          <TouchableOpacity onPress={() => navigation.navigate('Meal')} style={styles.buttonmeal}>
+            <Text style={styles.buttonText}>Meal</Text>
+          </TouchableOpacity>
+        
                 </View>
                 <Image source={require('../assets/home.png')}/>
                 <Text style={styles.label}>Activity Status</Text>
@@ -57,6 +61,7 @@ export default function Home() {
                         <Image source={require('../assets/Plus.png')} style={styles.add2} />
                     </ImageBackground>
                 </TouchableOpacity>
+                
             </View>
 
         )
@@ -74,6 +79,11 @@ export default function Home() {
             <View style={styles.empty}>
                 <Text style={styles.subheading}>No Record Of any Activity</Text>
             </View>
+            <View style={styles.sectionbutton}>
+          <TouchableOpacity onPress={() => navigation.navigate('Meal')} style={styles.button}>
+            <Text style={styles.buttonText}>Continue</Text>
+          </TouchableOpacity>
+        </View>
         </View>
 
     )
@@ -195,7 +205,7 @@ const styles = StyleSheet.create({
         color: '#0F2F5B',
         fontWeight: '600',
         fontSize: 30,
-        paddingTop: 50,
+        paddingTop: 20,
         marginBottom: 30,
         paddingHorizontal: 20,
     },
@@ -210,6 +220,13 @@ const styles = StyleSheet.create({
         height: 45,
         marginTop: 25,
         flexDirection: 'row',
+    },
+    buttonmeal:{
+        backgroundColor: '#c0d1da',
+        borderRadius: 6,
+        height: 45,
+        width: 66,
+        marginTop: 25,
     },
     cal: {
         backgroundColor: '#c0d1da',

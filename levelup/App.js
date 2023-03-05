@@ -17,6 +17,8 @@ import Running from './screens/Running';
 import Walking from './screens/Walking';
 import Cycling from './screens/Cycling';
 import Work from './screens/Work';
+import Signin from './screens/Signin';
+import Meal from './screens/Meal';
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -26,7 +28,9 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-       <Stack.Navigator>
+      <Stack.Navigator>
+
+
         <Stack.Screen
           name="Start"
           component={Start}
@@ -63,27 +67,36 @@ export default function App() {
         />
 
         <Stack.Screen
-        name="Running"
-        component={Running}
-        options={{ headerShown: false }}/>
+          name="Running"
+          component={Running}
+          options={{ headerShown: false }} />
+        <Stack.Screen
+          name="Meal"
+          component={Meal}
+          options={{ headerShown: false }}
+        />
 
-<Stack.Screen
-        name="Walking"
-        component={Walking}
-        options={{ headerShown: false }}/>
+        <Stack.Screen
+          name="Walking"
+          component={Walking}
+          options={{ headerShown: false }} />
 
 
-<Stack.Screen
-        name="Work"
-        component={Work}
-        options={{ headerShown: false }}/>
+        <Stack.Screen
+          name="Work"
+          component={Work}
+          options={{ headerShown: false }} />
 
 
-<Stack.Screen
-        name="Cycling"
-        component={Cycling}
-        options={{ headerShown: false }}/>
+        <Stack.Screen
+          name="Cycling"
+          component={Cycling}
+          options={{ headerShown: false }} />
 
+        <Stack.Screen
+          name="Signin"
+          component={Signin}
+          options={{ headerShown: false }} />
 
       </Stack.Navigator>
     </NavigationContainer>
