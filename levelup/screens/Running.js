@@ -22,6 +22,17 @@ import Navbar from './Navbar';
 
 export default function Running() {
     const navigation = useNavigation();
+    const [calories, setCalories] = useState("");
+    const [duration, setDuration] = useState("");
+
+    const calculation = () => {
+        setCalories()
+    }
+
+    function handleDurationChange(text) {
+        setDuration(text);
+      }
+
     const [options, setOptions] = useState({
         difficult: false,
         medium: false,
@@ -30,14 +41,13 @@ export default function Running() {
       const toggleOption = (option) => {
         setOptions({ ...options, [option]: !options[option] });
       };
+
     return (
         <SafeAreaView style={styles.sectionContainer} >
             <View>
                 <Text style={styles.sectiontitle}>Running</Text>
 
             </View>
-
-
 
             <View style={styles.titleBox}>
                 <Image source={require('../assets/Running.png')} />
@@ -52,6 +62,7 @@ export default function Running() {
                 <TextInput
                     style={styles.input}
                     placeholder="In HH:MM:SS"
+                    onChangeText={handleDurationChange}
                 />
             </View>
             </View>
@@ -71,15 +82,17 @@ export default function Running() {
         value={options.easy}
         onValueChange={() => toggleOption('easy')}
       />
-
-
-            </View>
+            </View> 
             <TouchableOpacity
                 style={styles.button}
                 onPress={() => navigation.navigate("Home")}>
-                    <Text style={styles.buttonText}>Add Workout</Text>
+                    <Text style={styles.buttonText}>Find calories</Text>
             </TouchableOpacity>
 
+        <TextInput
+                style={styles.input}
+                placeholder="In HH:MM:SS"
+            />
         </SafeAreaView>
     );
 
