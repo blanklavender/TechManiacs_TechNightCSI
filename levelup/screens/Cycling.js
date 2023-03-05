@@ -43,13 +43,6 @@ export default function Cycling() {
                 </Text>
             </View>
             <View style={styles.form}>
-            <View >
-                <Text style={styles.label}>Exercise</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Ex: Walking..."
-                />
-            </View>
 
             <View >
                 <Text style={styles.label}>Duration</Text>
