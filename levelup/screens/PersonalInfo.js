@@ -35,8 +35,11 @@ export default function Age() {
         'Content-Type': 'multipart/form-data',
       },
       body: formData,
+      
     }).then(async res => {
+      navigation.navigate('Home');
       if (res.status >= 200 && res.status < 300) {
+        console.log('heee')
         const response = await res.text();
         console.log(response);
         navigation.navigate('Home');
