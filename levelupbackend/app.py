@@ -11,4 +11,3 @@ app.config['SECRET_KEY'] = 'secret-key-goes-here'
 
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(main_blueprint)
-

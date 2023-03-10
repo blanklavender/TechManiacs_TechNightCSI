@@ -7,33 +7,22 @@ from middleware import needs_auth
 main = Blueprint('main', __name__)
 
 
-@main.route('/get-entries/', methods=['GET'])
+@main.route('/get-entries', methods=['GET'])
 @needs_auth()
 def index(user):
     if request.method == "GET":
         return json_util.dumps(entries.find({}))
 
 
-@main.route('/entry', methods=['POST'])
+@main.route('/create-entry', methods=['POST'])
 @needs_auth()
 def set_entry(user):
+    print(request.form)
     if request.method == 'POST':
-        age = request.form.get['age']
-        gender = request.form.get['gender']
-        height = request.form.get['height']
-        weight = request.form.get['weight']
-        new_entry = {'username': user["email"], 'age': age, 'gender': gender, 'height': height, 'weight' : weight}
-        entries.insert_one(new_entry)
+        print(request.form)
+        age = request.form['age']
+        gender = request.form['gender']
+        height = request.form['height']
+        weight = request.form['weight']
+        entries.insert_one({'username': user["email"], 'age': age, 'gender':gender, 'height': height, 'weight': weight})
         return {"message": "Done"}
-    
-# @main.route('/set-entry', methods=['POST'])
-# @needs_auth()
-# def set_entry(user):
-#     if request.method == 'POST':
-#         Duration = request.form.get['Duration']
-#         intensity = request.form.get['intensity']
-       
-#         new_entry = {'username': user["email"], 'Duration': Duration, 'intensity': intensity, }
-#         entries.insert_one(new_entry)
-#         return {"message": "Done"}
-    
