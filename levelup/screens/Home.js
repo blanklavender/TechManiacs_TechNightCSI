@@ -8,20 +8,32 @@ import {
     Image,
     ImageBackground
 } from 'react-native';
-
+import {APIs} from '../config/APIs';
 import { useNavigation } from '@react-navigation/native';
 import Navbar from './Navbar';
-
+import Utils from '../Utils/utils';
 export default function Home() {
     const navigation = useNavigation();
 
+    function Logout() {
+        Utils.get(APIs.logout).then(response => {
+            if (response.status >= 400 && response.status < 500) {
+              navigation.navigate('Home');
+              return;
+            }
+            if (response.status >= 200 && response.status < 300) {
+              navigation.navigate('Start');
+            }
+          });
+    }
+
 
     const [Session, setSession] = useState([
-        {key: 1, activity: 'Running', calories: '100 Kcal'},
-        {key: 2, activity: 'Walking', calories: '100 Kcal'},
-        {key: 3, activity: 'Cycling', calories: '100 Kcal'},
-        {key: 4, activity: 'Workout', calories: '100 Kcal'},
-        
+        { key: 1, activity: 'Running', calories: '20 Kcal' },
+        { key: 2, activity: 'Walking', calories: '50 Kcal' },
+        { key: 3, activity: 'Cycling', calories: '68 Kcal' },
+        { key: 4, activity: 'Workout', calories: '31 Kcal' },
+
     ])
 
     const size = Session.length;
@@ -30,15 +42,15 @@ export default function Home() {
         return (
 
             <View style={styles.body}>
-<View style={{flexDirection: 'row'}}>
-                <Text style={styles.heading}>Hello Fighter!    </Text>
-                
-          <TouchableOpacity onPress={() => navigation.navigate('Meal')} style={styles.buttonmeal}>
-            <Text style={styles.buttonText}>Meal</Text>
-          </TouchableOpacity>
-        
+                <View style={{ flexDirection: 'row', margin: 10 }}>
+                    <Text style={styles.heading}>Hello Fighter!    </Text>
+
+                    <TouchableOpacity onPress={Logout} style={styles.buttonmeal}>
+                        <Text style={styles.buttonText}>Logout</Text>
+                    </TouchableOpacity>
+
                 </View>
-                <Image source={require('../assets/home.png')}/>
+                <Image source={require('../assets/home.png')} />
                 <Text style={styles.label}>Activity Status</Text>
                 <ScrollView style={styles.list}>
                     {
@@ -61,7 +73,7 @@ export default function Home() {
                         <Image source={require('../assets/Plus.png')} style={styles.add2} />
                     </ImageBackground>
                 </TouchableOpacity>
-                
+
             </View>
 
         )
@@ -80,10 +92,10 @@ export default function Home() {
                 <Text style={styles.subheading}>No Record Of any Activity</Text>
             </View>
             <View style={styles.sectionbutton}>
-          <TouchableOpacity onPress={() => navigation.navigate('Meal')} style={styles.button}>
-            <Text style={styles.buttonText}>Continue</Text>
-          </TouchableOpacity>
-        </View>
+                <TouchableOpacity onPress={() => navigation.navigate('Meal')} style={styles.button}>
+                    <Text style={styles.buttonText}>Continue</Text>
+                </TouchableOpacity>
+            </View>
         </View>
 
     )
@@ -113,11 +125,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: 20,
         paddingBottom: 10,
-      },
+    },
     subheading: {
         fontSize: 17,
         color: '#0F2F5B',
-        
+
     },
     text: {
         margin: 5,
@@ -130,13 +142,13 @@ const styles = StyleSheet.create({
     box: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginHorizontal: 40, 
+        marginHorizontal: 40,
         flexDirection: 'row',
         height: 40,
         flex: 1,
         backgroundColor: '#c8E8E8',
-        
-        
+
+
     },
     date: {
         height: '100%',
@@ -150,7 +162,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'baseline',
     },
-    
+
     empty: {
         backgroundColor: '#c8E8E8',
         width: '90%',
@@ -205,7 +217,7 @@ const styles = StyleSheet.create({
         color: '#0F2F5B',
         fontWeight: '600',
         fontSize: 30,
-        paddingTop: 20,
+        paddingTop: 50,
         marginBottom: 30,
         paddingHorizontal: 20,
     },
@@ -221,7 +233,7 @@ const styles = StyleSheet.create({
         marginTop: 25,
         flexDirection: 'row',
     },
-    buttonmeal:{
+    buttonmeal: {
         backgroundColor: '#c0d1da',
         borderRadius: 6,
         height: 45,
@@ -252,7 +264,7 @@ const styles = StyleSheet.create({
         color: '#0F2F5B',
         paddingTop: 10,
         fontWeight: '600',
-        marginHorizontal: 10,
+        marginHorizontal: 15,
     },
     calText: {
         textAlign: 'center',

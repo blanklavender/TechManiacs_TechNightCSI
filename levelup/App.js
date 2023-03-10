@@ -18,7 +18,8 @@ import Walking from './screens/Walking';
 import Cycling from './screens/Cycling';
 import Work from './screens/Work';
 import Signin from './screens/Signin';
-import Meal from './screens/Meal';
+// import Meal from './screens/Meal';
+import AuthMiddleware from './screens/AuthMiddleware';
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -29,8 +30,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-
-
+      <Stack.Screen
+          name="AuthMiddleware"
+          component={AuthMiddleware}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Start"
           component={Start}
@@ -70,11 +74,11 @@ export default function App() {
           name="Running"
           component={Running}
           options={{ headerShown: false }} />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Meal"
           component={Meal}
           options={{ headerShown: false }}
-        />
+        /> */}
 
         <Stack.Screen
           name="Walking"

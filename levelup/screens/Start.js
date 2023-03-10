@@ -9,13 +9,13 @@ import {
   } from 'react-native';
   import { useNavigation } from '@react-navigation/native';
 import { ImageBackground } from 'react-native';
-import Home from './Home';
+
 
   export default function Start(){
     const navigation = useNavigation();
     return (
       <SafeAreaView style= {styles.sectionContainer} >
-        {/* <ImageBackground source={require('../assets/start.png')} style ={styles.sectionimage}>
+        <ImageBackground source={require('../assets/start.png')} style ={styles.sectionimage}>
           <Text style={styles.sectionTitle} >LEVEL{'\n'}   UP</Text>
         </ImageBackground>
          <View style={styles.sectionview}>
@@ -29,10 +29,8 @@ import Home from './Home';
             <TouchableOpacity  onPress={() => navigation.navigate('Register')}style={styles.button}>
               <Text style={styles.buttonText}>Register</Text>
             </TouchableOpacity>
-            </View> */}
+            </View>
 
-
-            <Home/>
                 </SafeAreaView>
    );
  };

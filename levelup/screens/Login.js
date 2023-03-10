@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
 
   form: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
   },
 
   input: {

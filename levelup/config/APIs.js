@@ -4,5 +4,6 @@ export const APIs = {
   login: `${baseURL}/login`,
   profile: `${baseURL}/profile`,
   getEntries: `${baseURL}/get-entries`,
-  setEntries: `${baseURL}/entry`,
+  setEntries: `${baseURL}/create-entry`,
+  logout: `${baseURL}/logout`,
 };

@@ -42,6 +42,9 @@ export default function Login() {
         console.log(response);
         navigation.navigate('PersonalInfo');
       }
+      else{
+        console.log(response);
+      }
     });
   }
   return (
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
   },
 
   form: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
   },
 
   input: {

@@ -12,7 +12,7 @@ import {
     Button,
     Alert,
     Switch
-    
+   
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -22,25 +22,18 @@ import Navbar from './Navbar';
 
 export default function Running() {
     const navigation = useNavigation();
-    const [calories, setCalories] = useState("");
+    const [value, setValue] = useState();
     const [duration, setDuration] = useState("");
 
-    const calculation = () => {
-        setCalories()
+    const handlePress = () => {
+        
+        setValue(duration*(60*8));
+        
     }
-
-    function handleDurationChange(text) {
+   
+    function handleChange(text) {
         setDuration(text);
-      }
-
-    const [options, setOptions] = useState({
-        difficult: false,
-        medium: false,
-        easy: false,
-      });
-      const toggleOption = (option) => {
-        setOptions({ ...options, [option]: !options[option] });
-      };
+    }
 
     return (
         <SafeAreaView style={styles.sectionContainer} >
@@ -56,43 +49,27 @@ export default function Running() {
                 </Text>
             </View>
             <View style={styles.form}>
-            
+           
             <View >
                 <Text style={styles.label}>Duration</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="In HH:MM:SS"
-                    onChangeText={handleDurationChange}
+                    placeholder="In minutes"
+                    numeric
+                    onChangeText={handleChange}
                 />
             </View>
             </View>
-            <View style={styles.form}>
-                <Text style={styles.label}>Difficult</Text>
-                <Switch
-        value={options.difficult}
-        onValueChange={() => toggleOption('difficult')}
-      />
-      <Text style={styles.label}>Medium</Text>
-                <Switch
-        value={options.medium}
-        onValueChange={() => toggleOption('medium')}
-      />
-      <Text style={styles.label}>Easy</Text>
-                <Switch
-        value={options.easy}
-        onValueChange={() => toggleOption('easy')}
-      />
-            </View> 
+           
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => navigation.navigate("Home")}>
-                    <Text style={styles.buttonText}>Find calories</Text>
+                onPress={() => handlePress()}>
+                <Text style={styles.buttonText}>Find calories</Text>
             </TouchableOpacity>
-
-        <TextInput
-                style={styles.input}
-                placeholder="In HH:MM:SS"
-            />
+        <Text style={styles.title}>Estimated Value</Text>
+        <Text  style={styles.title}>
+            {value+' calories burned'}
+        </Text>
         </SafeAreaView>
     );
 
@@ -126,7 +103,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#6359A6',
         marginHorizontal: 40,
-        marginTop: 20
+        marginTop: 20,
+        
+        height: 50,
+        
     },
 
     modalbutton: {
@@ -217,15 +197,15 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         fontSize: 17,
         paddingHorizontal: 10,
-        
-        
+       
+       
     },
 
     label: {
         color: '#0F2F5B',
         fontWeight: '600',
         fontSize: 20,
-        
+       
     },
 
     sectionbutton: {
@@ -249,4 +229,4 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
 });
-      
+     

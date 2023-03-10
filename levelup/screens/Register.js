@@ -28,6 +28,7 @@ export default function Register() {
       console.log('Hey');
       if (response.status >= 400 && response.status < 500) {
         navigation.navigate('Start');
+        console.log('Account already exists');
         return;
       }
       if (response.status >= 200 && response.status < 300) {
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
   },
 
   form: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
   },
 
   input: {
